@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<h1>A regular expression to detect email address when leaves a text box.</h1>
+	<title></title>
+</head>
+<body>
+
+<!-- <form name="myForm" onsubmit="return validateEmail()"> -->
+<form name="myForm" onsubmit="return">
+Email: <input id="demo"  type="text" name="fname" placeholder="Enter your email" />
+<!-- <button>Click</button> -->
+</form>
+
+
+
+</body> 
+<script>
+	   document.getElementById("demo").addEventListener("mouseenter", mouseEnter);
+document.getElementById("demo").addEventListener("mouseleave", mouseLeave);
+
+function mouseEnter() {
+    document.getElementById("demo").style.color = "red";
+}
+
+function mouseLeave() {
+            // function validateEmail(){
+        var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+ var emailField = document.forms["myForm"]["fname"].value;
+
+        if (reg.test(emailField) == false) 
+        {
+            alert('Invalid Email Address');
+            return false;
+        }
+    else {
+    	alert("entered emailId :-" + emailField);
+    // }
+}
+}
+</script>
+</html>

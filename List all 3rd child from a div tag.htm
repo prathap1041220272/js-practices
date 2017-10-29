@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div {
+    border: 1px solid black;
+    margin: 5px;
+}
+</style>
+</head>
+<body>
+
+<p>Click the button to add a background color to the third child node of div.</p>
+
+
+
+<div id="myDIV">
+  <p>First p element</p>
+  <p>Second p element</p>
+  <p>third p element</p>
+  <p>fourth p element</p>
+</div>
+
+<button onclick="myFunction()">Try it</button>
+
+<script>
+function myFunction() {
+    var c = document.getElementById("myDIV").children;
+    c[2].style.backgroundColor = "yellow";
+}
+</script>
+
+</body>
+</html>

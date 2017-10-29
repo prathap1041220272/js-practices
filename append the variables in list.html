@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Click the button to create a Text Node.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<script>
+function myFunction() {
+    var list = document.createElement("UL");
+    list.id = "mylist";
+    document.body.appendChild(list)
+    var a = ["cow" , "cat" , "dog" , "hen"]
+    for (var i = 0; i < a.length; i++) {
+    	var liEm = document.createElement("LI");
+    	var text = document.createTextNode(a[i]);
+    	liEm.appendChild(text)
+    	document.getElementById('mylist').appendChild(liEm)
+    }
+}
+</script>
+
+</body>
+</html>

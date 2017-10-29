@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+
+<!-- created the form -->
+
+<form name="myForm"
+onsubmit="return">
+<!-- <form name="myForm"
+onsubmit="return validateForm()"> -->
+Email: <input id="demo" type="email" name="fname" placeholder="Enter your email" />
+</form>
+
+</body>
+<script type="text/javascript">
+
+ 
+    document.getElementById("demo").addEventListener("mouseenter", mouseEnter);
+document.getElementById("demo").addEventListener("mouseleave", mouseLeave);
+
+function mouseEnter() {
+    document.getElementById("demo").style.color = "red";
+}
+
+function mouseLeave() {
+    // function validateForm(){
+ var mailId = document.forms["myForm"]["fname"].value;
+     var check = mailId.indexOf('@');
+    var email = mailId.endsWith(".com");
+     var emailid = mailId.endsWith(".co.in");
+   
+       if (mailId == "") {
+        alert("Email must be filled out");
+        return false;
+    }
+
+        if (check < 0) {
+        alert("your EmailId is not valid");
+        return false;
+    } 
+    if (email != true && emailid != true) {
+        alert("your EmailId is not valid");
+        return false
+    }
+    else {
+        alert("your emailId is :- " + mailId);
+    }
+}
+// }
+   
+    
+
+</script>
+</html>

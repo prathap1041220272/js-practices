@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<h1>A regular expression in JS to remove all html tags.</h1>
+<p> i / p :- <div> <ul> <li>list item </li></ul></div></p>
+</head>
+<p id="demo"></p>
+
+<script>
+	var htmlTagRe = /<\/?[\w\s="/.':;#-\/]+>/gi;
+ var html = "<div> <ul> <li>list item </li></ul></div>";
+var plainText = html.replace(htmlTagRe, '');
+// console.log(plainText);
+document.getElementById('demo').innerHTML = " o / p :-" + plainText;
+</script>
+
+</body>
+</html>
