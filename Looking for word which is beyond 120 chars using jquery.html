@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Display Using Ellipse Only 35 Charaters</title>
+    <style type="text/css">
+    .myClass {
+        background-color: yellow;
+    }
+    #ex1Modified{
+        color: grey;
+    }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <body id='color'>
+        <input type="text" id="val">
+        <button onclick="myFunction()">Search</button>
+        <br>
+        <br>
+         <div id="ex1Modified"></div>
+
+        <p id="ex1">Elit sed vulputate mi sit amet mauris commodo quis. Mi proin sed libero enim sed faucibus turpis in. Amet consectetur adipiscing elit pellentesque habitant morbi tristique senectus et. Nibh nisl condimentum id venenatis a condimentum. Risus commodo viverra maecenas accumsan lacus vel facilisis volutpat est. Quis risus sed vulputate odio. Egestas quis ipsum suspendisse ultrices gravida dictum fusce ut. Dignissim suspendisse in est ante in nibh mauris cursus mattis. Eget egestas purus viverra accumsan in nisl.</p>
+        <p>Elit sed vulputate mi sit amet mauris commodo quis. Mi proin sed libero enim sed faucibus turpis in. Amet consectetur adipiscing elit pellentesque habitant morbi tristique senectus et. Nibh nisl condimentum id venenatis a condimentum. Risus commodo viverra maecenas accumsan lacus vel facilisis volutpat est. Quis risus sed vulputate odio. Egestas quis ipsum suspendisse ultrices gravida dictum fusce ut. Dignissim suspendisse in est ante in nibh mauris cursus mattis. Eget egestas purus viverra accumsan in nisl.</p>
+        <p>Elit sed vulputate mi sit amet mauris commodo quis. Mi proin sed libero enim sed faucibus turpis in. Amet consectetur adipiscing elit pellentesque habitant morbi tristique senectus et. Nibh nisl condimentum id venenatis a condimentum. Risus commodo viverra maecenas accumsan lacus vel facilisis volutpat est. Quis risus sed vulputate odio. Egestas quis ipsum suspendisse ultrices gravida dictum fusce ut. Dignissim suspendisse in est ante in nibh mauris cursus mattis. Eget egestas purus viverra accumsan in nisl.</p>
+
+
+
+        <script type="text/javascript">
+            $(document).ready(function(){
+    $("#ex1Modified").click(function(){
+        $("p").toggle();
+    });
+});
+        function prepareText(text) {
+            var returnString = text;
+            var textLimit = 120;
+            if (text.length > textLimit) {
+                var lastWord = text.slice(text.lastIndexOf(' ') + 1);
+                var indexFromEnd = lastWord.length;
+                var ellipsis = '... ';
+                returnString = text.slice(0, textLimit - indexFromEnd - ellipsis.length);
+                returnString = returnString + ellipsis + lastWord;
+            }
+            return returnString;
+        }
+        $('#ex1Modified').html(prepareText($('#ex1').html()));
+    
+        function myFunction() {
+            function hiliter(word, element) {
+                var rgxp = new RegExp("\\b" + word + "\\b", 'gi'); 
+                var repl = '<span class="myClass">' + word + '</span>';
+                element.innerHTML = element.innerHTML.replace(rgxp, repl);
+            };
+            var text = document.getElementById("val");
+            var word = text.value;
+            hiliter(word, document.getElementById('color'));
+        };
+        </script>
+    </body>
+
+</html>
