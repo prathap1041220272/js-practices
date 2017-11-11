@@ -1,66 +1,114 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="utf-8">
-    <title>Display Using Ellipse Only 35 Charaters</title>
-    <style type="text/css">
-    .myClass {
-        background-color: yellow;
-    }
-    #ex1Modified{
-        color: grey;
-    }
-    </style>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	
+	<title>Test</title>
+	<style type="text/css">
+		.highlight {
+    background-color: #fff34d;
+    -moz-border-radius: 5px; /* FF1+ */
+    -webkit-border-radius: 5px; /* Saf3-4 */
+    border-radius: 5px; /* Opera 10.5, IE 9, Saf5, Chrome */
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.7); /* FF3.5+ */
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.7); /* Saf3.0+, Chrome */
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.7); /* Opera 10.5+, IE 9.0 */
+}
+
+.highlight {
+    padding:1px 4px;
+    margin:0 -4px;
+}
+	</style>
 </head>
-
 <body>
-
-    <body id='color'>
-        <input type="text" id="val">
-        <button onclick="myFunction()">Search</button>
-        <br>
-        <br>
-         <div id="ex1Modified"></div>
-
-        <p id="ex1">Elit sed vulputate mi sit amet mauris commodo quis. Mi proin sed libero enim sed faucibus turpis in. Amet consectetur adipiscing elit pellentesque habitant morbi tristique senectus et. Nibh nisl condimentum id venenatis a condimentum. Risus commodo viverra maecenas accumsan lacus vel facilisis volutpat est. Quis risus sed vulputate odio. Egestas quis ipsum suspendisse ultrices gravida dictum fusce ut. Dignissim suspendisse in est ante in nibh mauris cursus mattis. Eget egestas purus viverra accumsan in nisl.</p>
-        <p>Elit sed vulputate mi sit amet mauris commodo quis. Mi proin sed libero enim sed faucibus turpis in. Amet consectetur adipiscing elit pellentesque habitant morbi tristique senectus et. Nibh nisl condimentum id venenatis a condimentum. Risus commodo viverra maecenas accumsan lacus vel facilisis volutpat est. Quis risus sed vulputate odio. Egestas quis ipsum suspendisse ultrices gravida dictum fusce ut. Dignissim suspendisse in est ante in nibh mauris cursus mattis. Eget egestas purus viverra accumsan in nisl.</p>
-        <p>Elit sed vulputate mi sit amet mauris commodo quis. Mi proin sed libero enim sed faucibus turpis in. Amet consectetur adipiscing elit pellentesque habitant morbi tristique senectus et. Nibh nisl condimentum id venenatis a condimentum. Risus commodo viverra maecenas accumsan lacus vel facilisis volutpat est. Quis risus sed vulputate odio. Egestas quis ipsum suspendisse ultrices gravida dictum fusce ut. Dignissim suspendisse in est ante in nibh mauris cursus mattis. Eget egestas purus viverra accumsan in nisl.</p>
+<input type="text" class="span1 disabled" id="field1" name="field1"><br> 
+    
+<p>Elit sed vulputate mi sit amet mauris commodo quis. Mi proin sed libero enim sed faucibus turpis in. Amet consectetur adipiscing elit pellentesque habitant morbi tristique senectus et. Nibh nisl condimentum id venenatis a condimentum. Risus commodo viverra maecenas accumsan lacus vel facilisis volutpat est. Quis risus sed vulputate odio. Egestas quis ipsum suspendisse ultrices gravida dictum fusce ut. Dignissim suspendisse in est ante in nibh mauris cursus mattis. Eget egestas purus viverra accumsan in nisl.</p>  
+</body>
+<script type="text/javascript">
 
 
 
-        <script type="text/javascript">
-            $(document).ready(function(){
-    $("#ex1Modified").click(function(){
-        $("p").toggle();
+jQuery.fn.highlight = function(pat) {
+ function innerHighlight(node, pat) {
+  var skip = 0;
+  if (node.nodeType == 3) {
+   var pos = node.data.toUpperCase().indexOf(pat);
+   if (pos >= 0) {
+    var spannode = document.createElement('span');
+    spannode.className = 'highlight';
+    var middlebit = node.splitText(pos);
+    var endbit = middlebit.splitText(pat.length);
+    var middleclone = middlebit.cloneNode(true);
+    spannode.appendChild(middleclone);
+    middlebit.parentNode.replaceChild(spannode, middlebit);
+    skip = 1;
+   }
+  }
+  else if (node.nodeType == 1 && node.childNodes && !/(script|style)/i.test(node.tagName)) {
+   for (var i = 0; i < node.childNodes.length; ++i) {
+    i += innerHighlight(node.childNodes[i], pat);
+   }
+  }
+  return skip;
+ }
+ return this.each(function() {
+  innerHighlight(this, pat.toUpperCase());
+ });
+};
+
+jQuery.fn.removeHighlight = function() {
+ function newNormalize(node) {
+    for (var i = 0, children = node.childNodes, nodeCount = children.length; i < nodeCount; i++) {
+        var child = children[i];
+        if (child.nodeType == 1) {
+            newNormalize(child);
+            continue;
+        }
+        if (child.nodeType != 3) { continue; }
+        var next = child.nextSibling;
+        if (next == null || next.nodeType != 3) { continue; }
+        var combined_text = child.nodeValue + next.nodeValue;
+        new_node = node.ownerDocument.createTextNode(combined_text);
+        node.insertBefore(new_node, child);
+        node.removeChild(child);
+        node.removeChild(next);
+        i--;
+        nodeCount--;
+    }
+ }
+
+ return this.find("span.highlight").each(function() {
+    var thisParent = this.parentNode;
+    thisParent.replaceChild(this.firstChild, this);
+    newNormalize(thisParent);
+ }).end();
+};
+
+
+
+
+	jQuery(function() {
+    jQuery('#field1').bind('keyup change', function(ev) {
+        // pull in the new value
+        var searchTerm = $(this).val();
+
+        // remove any old highlighted terms
+        jQuery('body').removeHighlight();
+
+        // disable highlighting if empty
+        if ( searchTerm ) {
+            var terms = searchTerm.split(/\W+/);
+           $.each(terms, function(_, term){
+                  // highlight the new term
+            term = term.trim();
+            if(term != "")
+               jQuery('body').highlight(term);
+            });                          
+          
+        }
     });
 });
-        function prepareText(text) {
-            var returnString = text;
-            var textLimit = 120;
-            if (text.length > textLimit) {
-                var lastWord = text.slice(text.lastIndexOf(' ') + 1);
-                var indexFromEnd = lastWord.length;
-                var ellipsis = '... ';
-                returnString = text.slice(0, textLimit - indexFromEnd - ellipsis.length);
-                returnString = returnString + ellipsis + lastWord;
-            }
-            return returnString;
-        }
-        $('#ex1Modified').html(prepareText($('#ex1').html()));
-    
-        function myFunction() {
-            function hiliter(word, element) {
-                var rgxp = new RegExp("\\b" + word + "\\b", 'gi'); 
-                var repl = '<span class="myClass">' + word + '</span>';
-                element.innerHTML = element.innerHTML.replace(rgxp, repl);
-            };
-            var text = document.getElementById("val");
-            var word = text.value;
-            hiliter(word, document.getElementById('color'));
-        };
-        </script>
-    </body>
-
+</script>
 </html>

@@ -1,0 +1,445 @@
+     ========   =======
+        ||      ||
+        ||      ||=====
+        ||           ||
+     ====#      =====||
+---------------------------------------------------------------------------------------------date :- 14/10/2017
+
+1.call back :-
+
+$ (or) jQuery(document).ready(function(){
+    $("button").click(function(){
+        $("p").toggle("slow" (or) 3000, function(){
+            alert("The paragraph is now hidden");
+        });
+    });
+});
+
+<<<<<<-- it's not a call back function ---->>>>>
+
+$ (or) jQuery(document).ready(function(){
+    $("button").click(function(){
+        $("p").toggle("slow" (or) 3000)
+            alert("The paragraph is now hidden");
+    });
+});
+
+
+
+
+
+call back function using the javascript:-
+
+
+function greeting(name) {
+  alert('Hello ' + name);
+}
+
+function processUserInput(callback) {
+  var name = prompt('Please enter your name.');
+  callback(name);
+}
+
+processUserInput(greeting);
+
+
+
+-------------------------------------------------------------------------------------------------------------------
+
+2.self exection function :-
+
+   (function () {
+    var x = 10 -1;
+        document.getElementById("demo").innerHTML = x;
+   })();
+
+-------------------------------------------------------------------------------------------------------------------
+
+3. Regular expression :-
+
+->> A regular expression is a sequence of characters that forms a search pattern.
+
+        -->>  /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/
+
+-------------------------------------------------------------------------------------------------------------------
+
+
+4. Q's &  promises :-
+
+
+The Promise object represents the eventual completion (or failure) of an asynchronous operation, and its resulting value.
+
+this is the link for promises in MDN.
+
+      https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+
+
+-------------------------------------------------------------------------------------------------------------------
+
+5. Ellipsis :-
+
+#div2 ( or ) .div ( or ) h1,p{
+    white-space: nowrap; 
+    width: 12em; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    border: 1px solid #000000;
+}
+
+-->> ellipses in function 
+
+
+<script>
+function myFunction() {
+    document.getElementById("myDIV").style.textOverflow = "ellipsis";
+}
+</script>
+
+(or)
+
+<script>
+var a = "...";
+document.getElementById("demo").innerHTML = a +"Hello Dolly.";
+</script>
+
+
+
+ ---->>>Three Ways to Insert CSS <<<---
+          There are three ways of inserting a style sheet:
+
+1.External style sheet  (ex:- sample.css)
+2.Internal style sheet  (ex:- h,p (or) etc..{ style })
+3.Inline style   (ex:-   <h1 style="color:blue;margin-left:30px;">This is a heading</h1> )
+
+-------------------------------------------------------------------------------------------------------------------
+6. String method :-
+
+Method	                |       Description
+                        |
+1.charAt()	            |   1.Returns the character at the specified index (position)
+2.charCodeAt()          |   2.Returns the Unicode of the character at the specified index
+3.concat()	            |   3. Joins two or more strings, and returns a new joined strings
+4.endsWith()            |   4. Checks whether a string ends with specified string/characters
+5.fromCharCode()        |   5.  Converts Unicode values to characters
+6.includes()	        |   6.Checks whether a string contains the specified string/characters
+7.indexOf()	            |   7.Returns the position of the first found occurrence of a specified value in a string
+8.lastIndexOf()         |   8.Returns the position of the last found occurrence of a specified value in a string
+9.localeCompare()       |   9. Compares two strings in the current locale
+10.match()	            |   10.Searches a string for a match against a regular expression, and returns the matches
+11.repeat()	            |   11.Returns a new string with a specified number of copies of an existing string
+12.replace()	        |   12.Searches a string for a specified value, or a regular expression, and returns a new string where the specified values are replaced.
+
+13.search()	            |   13.Searches a string for a specified value, or regular expression, and returns the position of the match.
+14.slice()	            |   14. Extracts a part of a string and returns a new string
+15.split()    	        |   15. Splits a string into an array of substrings
+16.startsWith()         | 	16.Checks whether a string begins with specified characters
+17.substr()	            |   17.Extracts the characters from a string, beginning at a specified start position, and through the specified number of character.
+
+18.substring()	        |   18.Extracts the characters from a string, between two specified indices
+19.toLocaleLowerCase()	|   19.Converts a string to lowercase letters, according to the host's locale
+20.toLocaleUpperCase()  |  	20.Converts a string to uppercase letters, according to the host's locale
+21.toLowerCase()	    |   21.Converts a string to lowercase letters
+22.toString()	        |   22.Returns the value of a String object
+23.toUpperCase()	    |   23.Converts a string to uppercase letters
+24.trim()	            |   24. Removes whitespace from both ends of a string
+25.valueOf()	        |   25. Returns the primitive value of a String object
+
+-------------------------------------------------------------------------------------------------------------------
+7. Selectors :-
+
+Selector	              |Example                       |	Selects
+                          |                              | 
+*	                      | $("*")                     	 |All elements
+#id	                      | $("#lastname")	             |The element with id="lastname"
+.class                    |	$(".intro")	                 |All elements with class="intro"
+.class,.class	          | $(".intro,.demo")	         |All elements with the class "intro" or "demo"
+element                   |	$("p")	                     |All <p> elements
+el1,el2,el3	              | $("h1,div,p")	             |All <h1>, <div> and <p> elements
+:first	                  | $("p:first")	             |The first <p> element
+:last	                  | $("p:last")	                 |The last <p> element
+:even                     | $("tr:even")	             |All even <tr> elements
+:odd	                  | $("tr:odd")	                 |All odd <tr> elements
+:first-child	          | $("p:first-child")	         |All <p> elements that are the first child of their parent.
+
+:first-of-type            | $("p:first-of-type")	     |All <p> elements that are the first <p> element of their parent.
+
+:last-child	              | $("p:last-child")	         |All <p> elements that are the last child of their parent
+:last-of-type         	  | $("p:last-of-type")	         |All <p> elements that are the last <p> element of their parent.
+
+:nth-child(n)	          | $("p:nth-child(2)")	         |All <p> elements that are the 2nd child of their parent
+:nth-last-child(n)	      | $("p:nth-last-child(2)")	 |All <p> elements that are the 2nd child of their parent, counting from the last child.
+
+:nth-of-type(n)           | $("p:nth-of-type(2)")        |All <p> elements that are the 2nd <p> element of their parent
+:nth-last-of-type(n)	  | $("p:nth-last-of-type(2)")	 |All <p> elements that are the 2nd <p> element of their parent, counting from the last child.
+
+:only-child	              | $("p:only-child")	         |All <p> elements that are the only child of their parent
+:only-of-type	          | $("p:only-of-type")          |All <p> elements that are the only child, of its type, of their parent.
+parent > child	          | $("div > p")	             |All <p> elements that are a direct child of a <div> element.
+
+parent descendant         | $("div p")	                 |All <p> elements that are descendants of a <div> element
+element + next	          | $("div + p")	             |The <p> element that are next to each <div> elements
+element ~ siblings	      | $("div ~ p")	             |All <p> elements that are siblings of a <div> element
+:eq(index)	              | $("ul li:eq(3)")	         |The fourth element in a list (index starts at 0)
+:gt(no)	                  | $("ul li:gt(3)")	         |List elements with an index greater than 3
+:lt(no)	                  | $("ul li:lt(3)")	         |List elements with an index less than 3
+:not(selector)	          | $("input:not(:empty)")	     |All input elements that are not empty
+:header	                  | $(":header")	             |All header elements <h1>, <h2> ...
+:animated	              | $(":animated")	             |All animated elements
+:focus	                  | $(":focus")	                 |The element that currently has focus
+:contains(text)    	      | $(":contains('Hello')")	     |All elements which contains the text "Hello"
+:has(selector)	          | $("div:has(p)")	             |All <div> elements that have a <p> element
+:empty	                  | $(":empty") 	             |All elements that are empty
+:parent	                  | $(":parent")	             |All elements that are a parent of another element
+:hidden	                  | $("p:hidden")	             |All hidden <p> elements
+:visible	              | $("table:visible")	         |All visible tables
+:root	                  | $(":root")	                 |The document's root element
+:lang(language)	          | $("p:lang(de)")	             |All <p> elements with a lang attribute value starting with "de".
+
+[attribute]       	      | $("[href]")	                 |All elements with a href attribute
+[attribute=value]	      | $("[href='default.htm']")	 |All elements with a href attribute value equal to "default.htm".
+
+[attribute!=value]	      | $("[href!='default.htm']")	 |All elements with a href attribute value not equal to "default.htm".
+
+[attribute$=value]	      | $("[href$='.jpg']")       	 |All elements with a href attribute value ending with ".jpg".
+
+[attribute|=value]	      | $("[title|='Tomorrow']")	 |All elements with a title attribute value equal to 'Tomorrow', or starting with 'Tomorrow' followed by a hyphen.
+
+[attribute^=value]	      | $("[title^='Tom']")	         |All elements with a title attribute value starting with "Tom".
+
+[attribute~=value]	      | $("[title~='hello']")	     |All elements with a title attribute value containing the specific word "hello".
+
+[attribute*=value]	      | $("[title*='hello']")	     |All elements with a title attribute value containing the word "hello".
+ 	 	 
+:input	                  | $(":input")	                 |All input elements
+:text	                  | $(":text")	                 |All input elements with type="text"
+:password	              | $(":password")	             |All input elements with type="password"
+:radio	                  | $(":radio")	                 |All input elements with type="radio"
+:checkbox	              | $(":checkbox")	             |All input elements with type="checkbox"
+:submit	                  | $(":submit")	             |All input elements with type="submit"
+:reset	                  | $(":reset")	                 |All input elements with type="reset"
+:button	                  | $(":button")	             |All input elements with type="button"
+:image	                  | $(":image")	                 |All input elements with type="image"
+:file	                  | $(":file")	                 |All input elements with type="file"
+:enabled	              | $(":enabled")	             |All enabled input elements
+:disabled	              | $(":disabled")	             |All disabled input elements
+:selected	              | $(":selected")	             |All selected input elements
+:checked	              | $(":checked")	             | All checked input elements
+
+------------------------------------------------------------------------------------------------------------------
+
+8. Traversal methods :-
+
+Traversing Up the DOM Tree
+Three useful jQuery methods for traversing up the DOM tree are:
+
+1.parent()
+2.parents()
+3.parentsUntil()
+___---____
+
+Traversing Down the DOM Tree
+Two useful jQuery methods for traversing down the DOM tree are:
+
+1.children()
+2.find()
+____----____
+
+
+Traversing Sideways in The DOM Tree
+There are many useful jQuery methods for traversing sideways in the DOM tree:
+
+1.siblings()
+2.next()
+3.nextAll()
+4.nextUntil()
+5.prev()
+6.prevAll()
+7.prevUntil()
+
+____----____
+
+jQuery Traversing - Filtering
+
+1.The first()
+2.last()
+3.eq(),
+4.filter() and
+5.not() Methods
+
+
+
+-------------------------------------------------------------------------------------------------------------------
+
+9. Filter :-
+
+The filter() method creates an array filled with all array elements that pass a test (provided as a function).
+
+<p id="demo"></p>
+
+<script>
+var ages = [32, 33, 16, 40];
+
+function checkAdult(age) {
+    return age >= 18;
+}
+
+function myFunction() {
+    document.getElementById("demo").innerHTML = ages.filter(checkAdult);
+}
+</script>
+
+-------------------------------------------------------------------------------------------------------------------
+
+10. Looping :-
+
+Loops can execute a block of code a number of times.
+
+
+Different Kinds of Loops
+JavaScript supports different kinds of loops:
+
+1.for - loops through a block of code a number of times
+2.for/in - loops through the properties of an object
+3.while - loops through a block of code while a specified condition is true
+4.do/while - also loops through a block of code while a specified condition is true
+
+
+<script>
+var cars = ["BMW", "Volvo", "Saab", "Ford", "Fiat", "Audi"];
+var text = "";
+var i;
+for (i = 0; i < cars.length; i++) {
+    text += cars[i] + "<br>";
+}
+document.getElementById("demo").innerHTML = text;
+</script>
+
+
+The JavaScript for/in statement loops through the properties of an object:
+
+<script>
+var txt = "";
+var person = {fname:"John", lname:"Doe", age:25}; 
+var x;
+for (x in person) {
+    txt += person[x] + " ";
+}
+document.getElementById("demo").innerHTML = txt;
+</script>
+
+
+-------------------------------------------------------------------------------------------------------------------
+11. Animation:-
+
+JavaScript animations are done by programming gradual changes in an element's style.
+
+<!DOCTYPE html>
+<html>
+<style>
+#container {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  background: yellow;
+}
+#animate {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-color: red;
+}
+</style>
+<body>
+
+<p>
+<button onclick="myMove()">Click Me</button>
+</p> 
+
+<div id ="container">
+<div id ="animate"></div>
+</div>
+
+<script>
+function myMove() {
+  var elem = document.getElementById("animate");   
+  var pos = 0;
+  var id = setInterval(frame, 5);
+  function frame() {
+    if (pos == 350) {
+      clearInterval(id);
+    } else {
+      pos++; 
+      elem.style.top = pos + 'px'; 
+      elem.style.left = pos + 'px'; 
+    }
+  }
+}
+</script>
+
+</body>
+</html>
+
+--------------------------------------------------------------------------------------------------date:-22/10/2017
+ 
+  
+ 1. function of objects
+ 2.prototype
+ 3.closuer
+ 4.jQuery selectors
+ 5.jQuery events
+ 6.HTML ,CSS
+
+
+ ------------------------------------------------------------------------------------------------date:- 01/11/2017
+ 
+
+                     _____              ______    _____
+       |\      /|   |     |   |\   |   |         |     |
+       | \    / |   |     |   | \  |   |   ___   |     |     __   __
+       |  \  /  |   |     |   |  \ |   |     |   |     |    |  | |__)
+       |   \/   |   |_____|   |   \|   |_____|   |_____|    |__| |__)
+
+
+
+
+1.MongoDB - Installation using Docker
+2.Mongo DB - Console usage
+
+__________________________________________________________________________________________________________________
+
+3.Mongo DB - Basic queries
+			- find    :-  db.products.find(),
+                       - db.collection.find( { qty: { $gt: 4 } } )
+                       -  db.bios.find( { _id: 5 } )
+                       -  db.collection.find( { qty: { $lt: 20 } } )
+                       -  db.collection.find( { field: { $gt: value1, $lt: value2 } } );
+                       -  db.students.find( { score: { $gt: 0, $lt: 2 } } )
+                       -  db.bios.find({
+                                        "name.first": "Yukihiro",
+                                        "name.last": "Matsumoto"
+                                        })
+                       -                   
+__________________________________________________________________________________________________________________
+- insert   :- db.products.insert( { item: "card", qty: 15 } ),
+
+-boolean in insert :-
+			 db.products.insert([
+     { _id: 20, item: "lamp", qty: 50, type: "desk" },
+     { _id: 21, item: "lamp", qty: 20, type: "floor" },
+     { _id: 22, item: "bulk", qty: 100 }
+   ],
+   { ordered: false }
+)
+
+__________________________________________________________________________________________________________________
+- update:-
+
+__________________________________________________________________________________________________________________
+
+			- remove
+			- save
+			- count()
+			- pretty()
+
+    refference:-   Check online for 10th Gen courses for mongo DB
