@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Display Using Ellipse Only 35 Charaters</title>
+    <style type="text/css">
+    .myClass {
+        background-color: yellow;
+    }
+    #ex1Modified {
+        color: #00ff00;
+    }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <body>
+        <input type="text" id="val" placeholder="Enter The Search word">
+        <button onclick="myFunction()">Search</button>
+        <br>
+        <br>
+        <h2 id="ex2"></h2>
+        <div id="ex1Modified"></div>
+        <p id="ex1">Elit sed vulputate mi sit amet mauris commodo quis. Mi proin sed libero enim sed faucibus turpis in. Amet consectetur adipiscing elit pellentesque habitant morbi tristique senectus et. Nibh nisl condimentum id venenatis a condimentum. Risus commodo viverra maecenas accumsan lacus vel facilisis volutpat est. Quis risus sed vulputate odio. Egestas quis ipsum suspendisse ultrices gravida dictum fusce ut. Dignissim suspendisse in est ante in nibh mauris cursus mattis. Eget egestas purus viverra accumsan in nisl.</p>  
+
+        <script type="text/javascript">
+        $(document).ready(function() {
+            $("input").blur(function() {
+                $("p").hide()
+                // $(".myClass").remove()
+                $("h2").empty()
+            });
+            $("input").click(function(){
+                $("p").show()
+            });
+            $("input").keyup(function(){
+                var searchTerm = $(this).val();
+                console.log(searchTerm)
+            })
+        });
+        function myFunction() { 
+            var text = document.getElementById("val");
+            var word = text.value;
+            function prepareText(text) {
+                var returnString = text;
+                var wordLimit = 1;
+                if (word.length > wordLimit) {
+                    var getWord = [0]
+                    for (let i = 0; i < getWord.length; i++) {
+                        if (getWord[i] !== -1) {
+                            var indexValue = text.indexOf(word, getWord[i] + 1)
+                            getWord.push(indexValue)
+                        }
+                    }
+                    var value = []
+                    for (let j = 0; j < getWord.length - 1; j++) {
+                        var startWord = text.slice(getWord[j] - 30, getWord[j]);
+                        var ellipsis = "...";
+                        var lastWord = text.slice(getWord[j], getWord[j] + 40)
+                        returnString = ellipsis + startWord + lastWord + ellipsis;
+                        value.push(returnString)
+                        $("h2").append(value[j]);
+                    }
+                    return returnString;
+                }
+            }
+            prepareText($('p').text());
+             function hiliter(word, element) {
+                var rgxp = new RegExp("\\b" + word + "\\b", 'gi');
+                var repl = '<span class="myClass">' + word + '</span>';
+                element.innerHTML = element.innerHTML.replace(rgxp, repl);
+            };
+            hiliter(word, document.getElementById('ex2'));
+        };
+        </script>
+    </body>
+
+</html>

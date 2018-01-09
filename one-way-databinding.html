@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>This example uses the addEventListener() method to attach a click event to a button.</p>
+
+<form>
+  Last name: <input type="text" name="lname" id="lname" required><br/>
+  First name: <input type="text" name="fname" id="fname" required><br/>
+  Middle name: <input type="text" name="mname" id="mname"><br/>
+  Name: <span id="fullname"></span><br />
+  <input type="button" value="Submit" onClick="values(form)">
+</form>
+<script>
+window.values = function(form) {
+  var fname = form.fname.value;
+  var mname = form.mname.value;
+  var lname = form.lname.value;
+
+  document.getElementById('fullname').innerHTML = fname + ' ' + mname + ' ' + lname;
+}
+</script>
+
+</body>
+</html>

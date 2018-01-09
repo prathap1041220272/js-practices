@@ -103,6 +103,7 @@ jQuery.fn.removeHighlight = function() {
            $.each(terms, function(_, term){
                   // highlight the new term
             term = term.trim();
+            console.log(term)
             if(term != "")
                jQuery('body').highlight(term);
             });                          
